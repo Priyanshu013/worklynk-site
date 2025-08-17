@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c9947793.css",
+    "main.js": "/static/js/main.1e3b4205.js",
+    "static/js/453.0dba246b.chunk.js": "/static/js/453.0dba246b.chunk.js",
+    "static/media/image.png": "/static/media/image.0eeabda699ff0f95012f.png",
+    "static/media/Worklynk8.jpg": "/static/media/Worklynk8.eda2d4f32473c7de9453.jpg",
+    "static/media/Worklynk11.jpg": "/static/media/Worklynk11.5fcba7b2febab01a5278.jpg",
+    "static/media/Worklynk16.jpg": "/static/media/Worklynk16.cd1c6e0ee3a326565547.jpg",
+    "static/media/Worklynk10.jpg": "/static/media/Worklynk10.3e42f361da0f3228aac5.jpg",
+    "static/media/Worklynk25.jpg": "/static/media/Worklynk25.962bec83d5aa6f2ca46d.jpg",
+    "static/media/Worklynk12.jpg": "/static/media/Worklynk12.cb92f4fa760433601db4.jpg",
+    "static/media/Worklynk18.jpg": "/static/media/Worklynk18.bf9cc1a9a9d66fae8ee4.jpg",
+    "static/media/Worklynk19.jpg": "/static/media/Worklynk19.d2875d7ca356be6d12b3.jpg",
+    "static/media/Worklynk14.jpg": "/static/media/Worklynk14.8b2d7910141465372878.jpg",
+    "static/media/Worklynk22.jpg": "/static/media/Worklynk22.12dc2c02dceee5bdad22.jpg",
+    "static/media/Worklynk7.jpg": "/static/media/Worklynk7.65aafbdae8b514196560.jpg",
+    "static/media/Worklynk15.jpg": "/static/media/Worklynk15.714414347c40a52eb153.jpg",
+    "static/media/Worklynk3.jpg": "/static/media/Worklynk3.626962ceb1e714d000f2.jpg",
+    "static/media/Worklynk21.jpg": "/static/media/Worklynk21.ea1102e6b2f905da072e.jpg",
+    "static/media/Worklynk24.jpg": "/static/media/Worklynk24.c4bbc46b4896afcaeebf.jpg",
+    "static/media/Worklynk2.jpg": "/static/media/Worklynk2.b056250ad220cef3a8b0.jpg",
+    "static/media/Worklynk5.jpg": "/static/media/Worklynk5.b057f528eab582a8fd4c.jpg",
+    "static/media/Worklynk9.jpg": "/static/media/Worklynk9.2bd16c92a2324ccce3ec.jpg",
+    "static/media/Worklynk6.jpg": "/static/media/Worklynk6.839df6ebce416fc32099.jpg",
+    "static/media/Worklynk4.jpg": "/static/media/Worklynk4.c28d398b15ea4081e50f.jpg",
+    "static/media/Worklynk13.jpg": "/static/media/Worklynk13.a282295f44284cc5482c.jpg",
+    "static/media/Worklynk1.jpg": "/static/media/Worklynk1.83f25a53f0848b1c72ef.jpg",
+    "static/media/Worklynk20.jpg": "/static/media/Worklynk20.1e037d20f384d13706e5.jpg",
+    "static/media/gmail.png": "/static/media/gmail.b6e09133cc852bbe12cd.png",
+    "static/media/priyanshu.jpeg": "/static/media/priyanshu.05987cf1945440113677.jpeg",
+    "static/media/worklynk2-removebg.png": "/static/media/worklynk2-removebg.ca0e80b0aff248be6aa3.png",
+    "static/media/playappstore.png": "/static/media/playappstore.7c500631a069d38e2c55.png",
+    "index.html": "/index.html",
+    "main.c9947793.css.map": "/static/css/main.c9947793.css.map",
+    "main.1e3b4205.js.map": "/static/js/main.1e3b4205.js.map",
+    "453.0dba246b.chunk.js.map": "/static/js/453.0dba246b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9947793.css",
+    "static/js/main.1e3b4205.js"
+  ]
+}
