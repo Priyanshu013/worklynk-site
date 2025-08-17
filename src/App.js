@@ -239,8 +239,10 @@ function App() {
                 Build Credibility. <br /> Unlock Opportunities.
               </h1>
               <p className="description">
-                WorkLynk helps you prove your skills, grow your Trust Score, and
-                stand out in your career.
+                WorkLynk helps you validate your skills, grow your Trust Score,
+                and get recognized for more than just keywords on a résumé. Show
+                the world why you’re more than a profile — you’re a professional
+                with credibility.
               </p>
               <button className="cta-button primary" onClick={scrollToForm}>
                 Join the Beta
