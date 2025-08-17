@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Import all Worklynk images
 import Worklynk1 from "./assets/Worklynk1.jpg";
@@ -169,7 +169,39 @@ function App() {
     window.open(gmailUrl, "_blank");
   };
 
-  // Removed useEffect for carousel timing since we're using CSS animation
+  // Scroll-triggered animations for cards
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all feature cards, step cards, form, and founder note
+    const featureCards = document.querySelectorAll(".feature-card");
+    const stepCards = document.querySelectorAll(".step-card");
+    const leadForm = document.querySelector(".lead-form");
+    const founderNote = document.querySelector(".founder-note-container");
+
+    featureCards.forEach((card) => observer.observe(card));
+    stepCards.forEach((card) => observer.observe(card));
+    if (leadForm) observer.observe(leadForm);
+    if (founderNote) observer.observe(founderNote);
+
+    return () => {
+      featureCards.forEach((card) => observer.unobserve(card));
+      stepCards.forEach((card) => observer.unobserve(card));
+      if (leadForm) observer.unobserve(leadForm);
+      if (founderNote) observer.unobserve(founderNote);
+    };
+  }, []);
 
   return (
     <div className="App">
@@ -314,7 +346,7 @@ function App() {
                     onChange={(e) => setSelectedDomain(e.target.value)}
                     className="form-select"
                   >
-                    <option value=""></option>
+                    <option value="">Select Your Domain</option>
                     {domains.map((domain, index) => (
                       <option key={index} value={domain}>
                         {domain}
