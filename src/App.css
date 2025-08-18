@@ -21,7 +21,7 @@
   bottom: 0;
   background: url("./assets/image.png") no-repeat center center;
   background-size: cover;
-  filter: blur(120px);
+  /* filter: blur(0px); */
   z-index: 1;
 }
 
@@ -59,6 +59,7 @@
   height: 100vh;
   box-sizing: border-box;
   position: relative;
+  padding-bottom: 0px;
 }
 
 /* Custom Scrollbar Styles */
@@ -76,6 +77,11 @@
 .left-column {
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
+  overflow: hidden !important;
+}
+
+.left-content-scroll {
+  overflow-y: scroll;
 }
 
 .right-column {
