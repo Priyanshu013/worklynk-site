@@ -440,6 +440,16 @@
   transform: translateY(30px) scale(0.95);
 }
 
+.step-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
 .step-card.animate-in {
   animation: cardFloatIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -513,8 +523,19 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  position: relative;
   opacity: 0;
   transform: translateY(30px) scale(0.95);
+}
+
+.lead-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
 
 .lead-form.animate-in {
