@@ -125,6 +125,8 @@
 /* Floating Title in Right Section */
 .floating-title {
   position: absolute;
+  display: none;
+
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -150,6 +152,7 @@
   text-align: center;
   font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont,
     sans-serif;
+  display: none;
 }
 
 /* Section Styles */

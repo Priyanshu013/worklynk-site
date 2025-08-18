@@ -231,7 +231,6 @@ function App() {
           <div className="logo-container">
             <img src={WorklynkLogo} alt="WorkLynk Logo" className="logo" />
           </div>
-
           {/* Section 1 - Hero */}
           <section className="hero-section">
             <div className="hero-content">
