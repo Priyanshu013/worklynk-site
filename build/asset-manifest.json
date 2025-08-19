@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/worklynk-site/static/css/main.c6e2c729.css",
-    "main.js": "/worklynk-site/static/js/main.876907ca.js",
+    "main.css": "/worklynk-site/static/css/main.6d8ea44b.css",
+    "main.js": "/worklynk-site/static/js/main.edaf63c8.js",
     "static/js/453.0dba246b.chunk.js": "/worklynk-site/static/js/453.0dba246b.chunk.js",
     "static/media/image.png": "/worklynk-site/static/media/image.0eeabda699ff0f95012f.png",
     "static/media/Worklynk8.jpg": "/worklynk-site/static/media/Worklynk8.eda2d4f32473c7de9453.jpg",
@@ -32,12 +32,12 @@
     "static/media/worklynk2-removebg.png": "/worklynk-site/static/media/worklynk2-removebg.ca0e80b0aff248be6aa3.png",
     "static/media/playappstore.png": "/worklynk-site/static/media/playappstore.7c500631a069d38e2c55.png",
     "index.html": "/worklynk-site/index.html",
-    "main.c6e2c729.css.map": "/worklynk-site/static/css/main.c6e2c729.css.map",
-    "main.876907ca.js.map": "/worklynk-site/static/js/main.876907ca.js.map",
+    "main.6d8ea44b.css.map": "/worklynk-site/static/css/main.6d8ea44b.css.map",
+    "main.edaf63c8.js.map": "/worklynk-site/static/js/main.edaf63c8.js.map",
     "453.0dba246b.chunk.js.map": "/worklynk-site/static/js/453.0dba246b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6e2c729.css",
-    "static/js/main.876907ca.js"
+    "static/css/main.6d8ea44b.css",
+    "static/js/main.edaf63c8.js"
   ]
 }

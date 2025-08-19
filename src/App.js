@@ -37,6 +37,8 @@ import LinkedInLogo from "./assets/linkedin.png";
 import GmailLogo from "./assets/gmail.png";
 
 function App() {
+  const APPS_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwHlNl0hRZk8oKHmv9OWtll-fPNeKBjrX3r0POjg37EB5KB470G4n4I2HV6Pz5O1ldoqw/exec";
   // Removed carousel-related state since we're using vertical scrolling
   const [formData, setFormData] = useState({
     name: "",
@@ -50,6 +52,9 @@ function App() {
     message: "",
     type: "error",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const domains = [
     "Software Development",
@@ -99,9 +104,17 @@ function App() {
   // Removed carousel navigation functions since we're using vertical scrolling
 
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+    // Clear error for this field when user starts typing
+    setErrors((prev) => {
+      if (!prev[name]) return prev;
+      const updated = { ...prev };
+      delete updated[name];
+      return updated;
     });
   };
 
@@ -113,27 +126,27 @@ function App() {
     }, 4000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Form validation
+    // Field validations (inline errors)
+    const newErrors = {};
     if (!formData.name.trim()) {
-      showToast("Please enter your name", "error");
-      return;
+      newErrors.name = "Please enter your name";
     }
 
     if (!formData.email.trim()) {
-      showToast("Please enter your email address", "error");
-      return;
-    }
-
-    if (!formData.email.includes("@")) {
-      showToast("Please enter a valid email address", "error");
-      return;
+      newErrors.email = "Please enter your email address";
+    } else if (!formData.email.includes("@")) {
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (!selectedDomain) {
-      showToast("Please select your domain", "error");
+      newErrors.domain = "Please select your domain";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -143,12 +156,56 @@ function App() {
       domain: selectedDomain,
     };
     console.log("Form submitted:", submissionData);
-    showToast(
-      "Thank you for joining the beta! We'll be in touch soon.",
-      "success"
-    );
-    setFormData({ name: "", email: "", domain: "" });
-    setSelectedDomain("");
+
+    setIsSubmitting(true);
+
+    // Try normal CORS POST first; if it fails (likely due to CORS), fall back to no-cors
+    let submitted = false;
+    try {
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submissionData),
+      });
+      if (response.ok) {
+        submitted = true;
+      } else {
+        // Fall back to no-cors (opaque response)
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submissionData),
+        });
+        submitted = true;
+      }
+    } catch (err) {
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submissionData),
+        });
+        submitted = true;
+      } catch (fallbackErr) {
+        console.error("Submission failed:", fallbackErr);
+        setIsSubmitting(false);
+        showToast("Submission failed. Please try again.", "error");
+        return;
+      }
+    }
+
+    if (submitted) {
+      showToast(
+        "Thank you for joining the beta! We'll be in touch soon.",
+        "success"
+      );
+      setErrors({});
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", domain: "" });
+      setSelectedDomain("");
+    }
   };
 
   const scrollToForm = () => {
@@ -321,33 +378,67 @@ function App() {
                 </p>
                 <form onSubmit={handleSubmit} className="lead-form" noValidate>
                   <div className="form-row">
-                    <div className="form-group">
+                    <div className={`form-group ${errors.name ? "error" : ""}`}>
                       <input
                         type="text"
                         name="name"
                         placeholder="Enter Your Name"
                         value={formData.name}
                         onChange={handleInputChange}
+                        aria-invalid={!!errors.name}
+                        aria-describedby={
+                          errors.name ? "name-error" : undefined
+                        }
                       />
                       <label htmlFor="name">Your Name</label>
+                      {errors.name && (
+                        <div id="name-error" className="error-message">
+                          <span className="error-icon">⚠️</span>
+                          <span className="error-text">{errors.name}</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="form-group">
+                    <div
+                      className={`form-group ${errors.email ? "error" : ""}`}
+                    >
                       <input
                         type="email"
                         name="email"
                         placeholder="Enter Your Email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        aria-invalid={!!errors.email}
+                        aria-describedby={
+                          errors.email ? "email-error" : undefined
+                        }
                       />
                       <label htmlFor="email">Your Email</label>
+                      {errors.email && (
+                        <div id="email-error" className="error-message">
+                          <span className="error-icon">⚠️</span>
+                          <span className="error-text">{errors.email}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
-                  <div className="form-group">
+                  <div className={`form-group ${errors.domain ? "error" : ""}`}>
                     <select
                       name="domain"
                       value={selectedDomain}
-                      onChange={(e) => setSelectedDomain(e.target.value)}
+                      onChange={(e) => {
+                        setSelectedDomain(e.target.value);
+                        setErrors((prev) => {
+                          if (!prev.domain) return prev;
+                          const updated = { ...prev };
+                          delete updated.domain;
+                          return updated;
+                        });
+                      }}
                       className="form-select"
+                      aria-invalid={!!errors.domain}
+                      aria-describedby={
+                        errors.domain ? "domain-error" : undefined
+                      }
                     >
                       <option value="">Select Your Domain</option>
                       {domains.map((domain, index) => (
@@ -357,9 +448,26 @@ function App() {
                       ))}
                     </select>
                     <label htmlFor="domain">Your Domain</label>
+                    {errors.domain && (
+                      <div id="domain-error" className="error-message">
+                        <span className="error-icon">⚠️</span>
+                        <span className="error-text">{errors.domain}</span>
+                      </div>
+                    )}
                   </div>
-                  <button type="submit" className="cta-button secondary">
-                    Join Now
+                  <button
+                    type="submit"
+                    className={`cta-button secondary ${
+                      isSubmitting ? "loading" : ""
+                    }`}
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <span className="spinner" aria-hidden="true"></span>
+                    ) : (
+                      "Join Now"
+                    )}
                   </button>
                 </form>
               </div>
