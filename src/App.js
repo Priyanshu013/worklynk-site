@@ -513,13 +513,13 @@ function App() {
                 <div className="founder-note-content">
                   <p className="founder-note-text">
                     Hi there! <br />
-                    I'm the founder of WorkLynk. I've worked as a Business
-                    Analyst and have a passion for building products that help
-                    people. The buzz of Artificial Intelligence has definitely
-                    built a lot of hype around the future of work. I'm excited
-                    to be a part of this journey and build a product that helps
-                    people grow their careers. There's a lot of things cooking
-                    under the hood and I'm excited to share more about it soon.
+                    I'm the founder of WorkLynk. I have a passion for building
+                    products that help people. The buzz of Artificial
+                    Intelligence has definitely built a lot of hype around the
+                    future of work. I'm excited to be a part of this journey and
+                    build a product that helps people grow their careers.
+                    There's a lot of things cooking under the hood and I'm
+                    excited to share more about it soon.
                   </p>
                 </div>
               </div>

@@ -431,14 +431,14 @@
 }
 
 .cta-button.primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
   color: white;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(55, 65, 81, 0.3);
 }
 
 .cta-button.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 15px 35px rgba(55, 65, 81, 0.4);
 }
 
 .cta-button.secondary {
@@ -458,7 +458,7 @@
   opacity: 0.8;
   cursor: not-allowed;
   transform: none;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 25px rgba(55, 65, 81, 0.2);
 }
 
 .spinner {
@@ -913,7 +913,7 @@
 
 /* Form Submit Button */
 .form-submit-btn {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
   color: white;
   border: none;
   border-radius: 50px;
@@ -926,27 +926,28 @@
   display: inline-block;
   text-align: center;
   min-width: 180px;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(55, 65, 81, 0.3);
   margin-top: 20px;
+  height: auto;
 }
 
 .form-submit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 15px 35px rgba(55, 65, 81, 0.4);
 }
 
 .form-submit-btn:disabled {
   opacity: 0.8;
   cursor: not-allowed;
   transform: none;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 25px rgba(55, 65, 81, 0.2);
 }
 
 .form-submit-btn.loading {
   opacity: 0.8;
   cursor: not-allowed;
   transform: none;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 25px rgba(55, 65, 81, 0.2);
 }
 
 /* Toast Messages */
@@ -1863,40 +1864,41 @@
 
   /* Form Submit Button */
   .form-submit-btn {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
     color: white;
     border: none;
     border-radius: 50px;
-    padding: 18px 36px;
-    font-size: 1.1rem;
+    padding: 14px 28px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    min-width: 180px;
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    min-width: 140px;
+    box-shadow: 0 8px 25px rgba(55, 65, 81, 0.3);
     margin-top: 20px;
+    height: auto;
   }
 
   .form-submit-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 15px 35px rgba(55, 65, 81, 0.4);
   }
 
   .form-submit-btn:disabled {
     opacity: 0.8;
     cursor: not-allowed;
     transform: none;
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 8px 25px rgba(55, 65, 81, 0.2);
   }
 
   .form-submit-btn.loading {
     opacity: 0.8;
     cursor: not-allowed;
     transform: none;
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 8px 25px rgba(55, 65, 81, 0.2);
   }
 }
 
