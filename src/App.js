@@ -228,6 +228,24 @@ function App() {
 
   // Scroll-triggered animations for cards
   useEffect(() => {
+    // Trigger logo and hero animations on page load
+    const logoContainer = document.querySelector(".logo-container");
+    const heroContent = document.querySelector(".hero-content");
+    const rightColumn = document.querySelector(".right-column");
+
+    // Add a small delay to ensure DOM is ready
+    setTimeout(() => {
+      if (logoContainer) {
+        logoContainer.classList.add("animate-in");
+      }
+      if (heroContent) {
+        heroContent.classList.add("animate-in");
+      }
+      if (rightColumn) {
+        rightColumn.classList.add("animate-in");
+      }
+    }, 100);
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
@@ -241,22 +259,25 @@ function App() {
       });
     }, observerOptions);
 
-    // Observe all feature cards, step cards, form, and founder note
+    // Observe all feature cards, step cards, form, founder note, and section titles
     const featureCards = document.querySelectorAll(".feature-card");
     const stepCards = document.querySelectorAll(".step-card");
     const leadForm = document.querySelector(".lead-form");
     const founderNote = document.querySelector(".founder-note-container");
+    const sectionTitles = document.querySelectorAll(".section-title");
 
     featureCards.forEach((card) => observer.observe(card));
     stepCards.forEach((card) => observer.observe(card));
     if (leadForm) observer.observe(leadForm);
     if (founderNote) observer.observe(founderNote);
+    sectionTitles.forEach((title) => observer.observe(title));
 
     return () => {
       featureCards.forEach((card) => observer.unobserve(card));
       stepCards.forEach((card) => observer.unobserve(card));
       if (leadForm) observer.unobserve(leadForm);
       if (founderNote) observer.unobserve(founderNote);
+      sectionTitles.forEach((title) => observer.unobserve(title));
     };
   }, []);
 
@@ -457,7 +478,7 @@ function App() {
                   </div>
                   <button
                     type="submit"
-                    className={`cta-button secondary ${
+                    className={`form-submit-btn ${
                       isSubmitting ? "loading" : ""
                     }`}
                     disabled={isSubmitting}
@@ -497,7 +518,8 @@ function App() {
                     people. The buzz of Artificial Intelligence has definitely
                     built a lot of hype around the future of work. I'm excited
                     to be a part of this journey and build a product that helps
-                    people grow their careers.
+                    people grow their careers. There's a lot of things cooking
+                    under the hood and I'm excited to share more about it soon.
                   </p>
                 </div>
               </div>
